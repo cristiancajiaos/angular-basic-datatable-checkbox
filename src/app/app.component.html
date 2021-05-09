@@ -1,0 +1,76 @@
+<div class="container pt-2">
+  <h1>Datatable Actions</h1>
+
+  <div class="row">
+    <div class="col-6">
+       <h2>By Value</h2>
+
+       <ngx-datatable class="bootstrap" [rows]="films" rowHeight="auto" headerHeight="auto" footerHeight="auto"
+         limit="7">
+         <ngx-datatable-column name="Title">
+           <ng-template let-value="value" ngx-datatable-cell-template>
+             {{value.originalTitle}}
+           </ng-template>
+         </ngx-datatable-column>
+         <ngx-datatable-column name="Country">
+           <ng-template let-value="value" ngx-datatable-cell-template>
+             {{value}}
+           </ng-template>
+         </ngx-datatable-column>
+         <ngx-datatable-column name="Duration" sortable="false">
+           <ng-template let-value="value" ngx-datatable-cell-template>
+             {{value}}
+           </ng-template>
+         </ngx-datatable-column>
+       </ngx-datatable>
+    </div>
+    <div class="col-6">
+      <h2>By Row</h2>
+
+      <ngx-datatable
+        [rows]="films"
+        class="bootstrap w-100 datatable"
+        [limit]="5"
+        [columnMode]="'standard'"
+        [scrollbarV]="true"
+        [scrollbarH]="true"
+      >
+          <ngx-datatable-column name="Title">
+            <ng-template let-value="value" ngx-datatable-cell-template>
+              {{value.title.title}}
+            </ng-template>
+          </ngx-datatable-column>
+          <ngx-datatable-column name="Original Title">
+            <ng-template let-value="value" ngx-datatable-cell-template>
+              {{value.title.originalTitle}}
+            </ng-template>
+          </ngx-datatable-column>
+          <ngx-datatable-column name="Country">
+            <ng-template let-value="value" ngx-datatable-cell-template>
+              {{value.country}}
+            </ng-template>
+          </ngx-datatable-column>
+          <ngx-datatable-column name="Duration">
+            <ng-template let-value="value" ngx-datatable-cell-template>
+              {{value.duration}}
+            </ng-template>
+          </ngx-datatable-column>
+          <ngx-datatable-column name="Budget">
+            <ng-template let-value="value" ngx-datatable-cell-template>
+              {{value.budget | currency}}
+            </ng-template>
+          </ngx-datatable-column>
+          <ngx-datatable-column name="Studio">
+            <ng-template let-value="value" ngx-datatable-cell-template>
+              {{value.studio.name}}
+            </ng-template>
+          </ngx-datatable-column>
+          <ngx-datatable-column name="Cast">
+            <ng-template let-value="value" ngx-datatable-cell-template>
+              {{row.cast | json}}
+            </ng-template>
+          </ngx-datatable-column>
+      </ngx-datatable>
+    </div>
+  </div>
+</div>
